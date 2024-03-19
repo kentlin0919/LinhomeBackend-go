@@ -1,7 +1,7 @@
 package servivce
 
 import (
-	"linhomebackend/pojo"
+	pojo "linhomebackend/pojo/account"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -10,7 +10,7 @@ import (
 var userList = []pojo.Account{}
 
 func Login(c *gin.Context) {
-	c.JSON(http.StatusOK, userList)
+	c.JSON(http.StatusOK, "Su")
 }
 
 func Postlogin(c *gin.Context) {
