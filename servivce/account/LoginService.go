@@ -9,14 +9,17 @@ import (
 
 var userList = []pojo.Account{}
 
-func Login(c *gin.Context) {
-	c.JSON(http.StatusOK, "Su")
-}
-
 func Postlogin(c *gin.Context) {
-	user := pojo.Account{}
+	// 解析 JSON 主體到結構體中
+	var user pojo.Account
+	if err := c.BindJSON(&user); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
 
-	userList = append(userList, user)
-	c.JSON(http.StatusOK, "Su")
-
+	if user.Name == "kk" {
+		c.JSON(http.StatusOK, user)
+	} else {
+		c.JSON(http.StatusBadRequest, "NO")
+	}
 }

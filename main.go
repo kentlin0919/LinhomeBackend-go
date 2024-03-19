@@ -2,7 +2,7 @@ package main
 
 import (
 	_ "linhomebackend/docs"
-	src "linhomebackend/src/account"
+	src "linhomebackend/src"
 
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
@@ -20,7 +20,7 @@ func main() {
 	router := gin.Default()
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	v1 := router.Group("/v1")
-	src.AddAccoutrouter(v1)
+	src.AccountRouter(v1)
 
 	router.Run(":9000")
 }
