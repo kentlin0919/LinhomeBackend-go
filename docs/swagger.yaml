@@ -8,21 +8,17 @@ info:
   version: "1.0"
 paths:
   /user/Login:
-    get:
+    post:
       consumes:
       - application/json
       description: 使用者登入功能
       parameters:
-      - description: 使用者名稱
-        in: query
-        name: username
+      - description: Body
+        in: body
+        name: Login
         required: true
-        type: string
-      - description: 密碼
-        in: query
-        name: password
-        required: true
-        type: string
+        schema:
+          type: object
       produces:
       - application/json
       responses:
@@ -37,6 +33,7 @@ paths:
       summary: 登入
       tags:
       - User
+  /user/Login1:
     post:
       consumes:
       - application/json

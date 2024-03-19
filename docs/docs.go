@@ -18,7 +18,7 @@ const docTemplate = `{
     "basePath": "{{.BasePath}}",
     "paths": {
         "/user/Login": {
-            "get": {
+            "post": {
                 "description": "使用者登入功能",
                 "consumes": [
                     "application/json"
@@ -32,18 +32,13 @@ const docTemplate = `{
                 "summary": "登入",
                 "parameters": [
                     {
-                        "type": "string",
-                        "description": "使用者名稱",
-                        "name": "username",
-                        "in": "query",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "description": "密碼",
-                        "name": "password",
-                        "in": "query",
-                        "required": true
+                        "description": "Body",
+                        "name": "Login",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object"
+                        }
                     }
                 ],
                 "responses": {
@@ -60,7 +55,9 @@ const docTemplate = `{
                         }
                     }
                 }
-            },
+            }
+        },
+        "/user/Login1": {
             "post": {
                 "description": "使用者登入功能",
                 "consumes": [
