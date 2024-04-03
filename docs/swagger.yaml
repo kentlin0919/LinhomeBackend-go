@@ -1,4 +1,12 @@
 basePath: /v1
+definitions:
+  pojo.Account:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    type: object
 host: 192.168.0.158:9000
 info:
   contact:
@@ -13,12 +21,12 @@ paths:
       - application/json
       description: 使用者登入功能
       parameters:
-      - description: Body
+      - description: 使用者登入資訊
         in: body
-        name: Login
+        name: body
         required: true
         schema:
-          type: object
+          $ref: '#/definitions/pojo.Account'
       produces:
       - application/json
       responses:
