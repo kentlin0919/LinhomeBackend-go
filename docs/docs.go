@@ -32,12 +32,12 @@ const docTemplate = `{
                 "summary": "登入",
                 "parameters": [
                     {
-                        "description": "Body",
-                        "name": "Login",
+                        "description": "使用者登入資訊",
+                        "name": "body",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "type": "object"
+                            "$ref": "#/definitions/pojo.Account"
                         }
                     }
                 ],
@@ -99,6 +99,19 @@ const docTemplate = `{
                             "type": "string"
                         }
                     }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "pojo.Account": {
+            "type": "object",
+            "properties": {
+                "password": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
                 }
             }
         }

@@ -10,8 +10,9 @@ import (
 
 var pojoaccount = pojo1.Account{}
 
-var acc struct {
-	name string
+type acc struct {
+	Name     string `json:"username"`
+	Password string `json:"password"`
 }
 
 // @Summary 登入
@@ -19,7 +20,7 @@ var acc struct {
 // @Tags User
 // @Accept json
 // @Produce json
-// @Param Data body acc true  {"username":"string","password":"string"}
+// @Param  body body pojo1.Account{} true "使用者登入資訊" 
 // @Success 200 {string} string "登入成功"
 // @Failure 400 {string} string "請求失敗"
 // @Router /user/Login [post]
